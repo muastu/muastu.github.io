@@ -18,9 +18,9 @@ jobs:
       issues: write
       packages: write
       pages: write
-      pullRequests: write
-      repositoryProjects: write
-      securityEvents: write
+      pullrequests: write
+      repositoryprojects: write
+      securityevents: write
       statuses: write
     steps:
       - uses: actions/checkout@v4
