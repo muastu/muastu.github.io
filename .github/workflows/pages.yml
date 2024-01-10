@@ -17,6 +17,7 @@ jobs:
       issues: write
       packages: write
       pages: write
+      statuses: write
     steps:
       - uses: actions/checkout@v4
         with:
