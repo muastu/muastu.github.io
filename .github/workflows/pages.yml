@@ -18,7 +18,6 @@ jobs:
       issues: write
       packages: write
       pages: write
-      repositoryprojects: write
       securityevents: write
       statuses: write
     steps:
