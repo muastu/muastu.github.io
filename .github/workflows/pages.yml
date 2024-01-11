@@ -51,7 +51,7 @@ jobs:
       - name: 部署到Github
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{ secrets.GITHUBTOKEN }}
+          token: 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
           repository-name: muastu/muastu.github.io
           branch: master
           folder: public
