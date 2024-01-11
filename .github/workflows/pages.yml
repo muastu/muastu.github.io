@@ -62,8 +62,8 @@ jobs:
           repository-name: muastu/muastu.github.io
           branch: master
           folder: public
-          clean-exclude: |
-            public/.github/
+          #    clean-exclude: |
+          #  public/.github/
           commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
       - name: Install Dependencies
         run: npm install
