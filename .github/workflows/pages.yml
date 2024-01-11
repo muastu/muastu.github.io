@@ -8,16 +8,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      checks: write
-      contents: write
-      deployments: write
-      discussions: write
-      issues: write
-      packages: write
-      pages: write
-      statuses: write
+    #    permissions:
+    #      actions: write
+    #      checks: write
+    #      contents: write
+    #      deployments: write
+    #      discussions: write
+    #      issues: write
+    #      packages: write
+    #      pages: write
+    #      statuses: write
 
     steps:
       - uses: actions/checkout@v3
@@ -37,20 +37,10 @@ jobs:
         with:
           path: node_modules
           key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
-
       - name: 5. 安装依赖 # Install Dependencies 如果没有缓存或 插件有更新，则安装插件
         if: steps.cache-modules.outputs.cache-hit != 'true'
         run: |
           npm install --save
-
-          #      - name: 6. 生成静态文件 # Generate
-          #        run: |
-          #          hexo clean
-          #          hexo generate
-          #          export TZ='Asia/Shanghai'
-          #
-          #      - name: Install Dependencies
-          #        run: npm install
       - name: Build
         run: npm run build
       - name: Upload Pages artifact
