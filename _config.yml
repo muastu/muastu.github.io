@@ -107,3 +107,7 @@ deploy:
   repo: https://github.com/muastu/muastu.github.io
   # example, https://github.com/hexojs/hexojs.github.io
   branch: master
+admin:
+  username: muastu
+  password_hash: $2a$10$WA8WFyenHTLHs01BAwXeQOScCYxx6cCFX9VQ4u0mVHoJJ94i0SaJq
+  secret: yxmb1kvqXmoZR6AZIFMcd9htw7BJRb2H6ap2
