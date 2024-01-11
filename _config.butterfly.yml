@@ -12,7 +12,7 @@ menu:
    首页: / || fas fa-home
    文章: /archives/ || fas fa-book
    标签: /tags/ || fas fa-tags
-   时间轴: /categories/ || fas fa-folder-open
+   分类: /categories/ || fas fa-folder-open
    娱乐||fa fa-heartbeat:
      音乐: /music/ || fas fa-music
      电影: /movies/ || fas fa-video
