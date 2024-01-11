@@ -30,6 +30,8 @@ jobs:
       - name: Install Hexo-cli
         run: |
           npm install hexo-cli -g
+          npm install hexo-renderer-stylus -g
+          npm install hexo-renderer-pug -g
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         with:
