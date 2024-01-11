@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>PromQL（prometheus查询语句）基本使用 | Muastu</title><meta name="author" content="Muastu"><meta name="copyright" content="Muastu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="官方参考文档 PromQL(prometheus Query Language)是Prometheus自己开发的数据查询DSL语言。语言表现力非常丰富，内置含税很多，在日常数据可视化一级rule告警都会使用到。 查询结果类型 PromQL查询结果主要有三种类型：  瞬时数据(Instant vector)：包含一组时序，每个时序只有一个点，例如：http_requests_total 区间数据(R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PromQL（prometheus查询语句）基本使用">
+<meta property="og:url" content="http://muastu.github.io/2024/01/11/PromQL%EF%BC%88prometheus%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Muastu">
+<meta property="og:description" content="官方参考文档 PromQL(prometheus Query Language)是Prometheus自己开发的数据查询DSL语言。语言表现力非常丰富，内置含税很多，在日常数据可视化一级rule告警都会使用到。 查询结果类型 PromQL查询结果主要有三种类型：  瞬时数据(Instant vector)：包含一组时序，每个时序只有一个点，例如：http_requests_total 区间数据(R">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://muastu.github.io/img/index_img.jpg">
+<meta property="article:published_time" content="2024-01-11T06:59:19.000Z">
+<meta property="article:modified_time" content="2024-01-11T07:02:16.128Z">
+<meta property="article:author" content="Muastu">
+<meta property="article:tag" content="PromQL">
+<meta property="article:tag" content="Prometheus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://muastu.github.io/img/index_img.jpg"><link rel="shortcut icon" href="/img/index_img.jpg"><link rel="canonical" href="http://muastu.github.io/2024/01/11/PromQL%EF%BC%88prometheus%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Muastu","link":"链接: ","source":"来源: Muastu","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'PromQL（prometheus查询语句）基本使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-11 15:02:16'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/index_img.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-book"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/index_img.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Muastu"><span class="site-name">Muastu</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-book"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">PromQL（prometheus查询语句）基本使用<a class="post-edit-link" href="https://github.com/muastu/muastu.github.io/edit/master/source/_posts/PromQL（prometheus查询语句）基本使用.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-11T06:59:19.000Z" title="发表于 2024-01-11 14:59:19">2024-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-11T07:02:16.128Z" title="更新于 2024-01-11 15:02:16">2024-01-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MiddleWare/">MiddleWare</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="PromQL（prometheus查询语句）基本使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong><a target="_blank" rel="noopener" href="https://songjiayang.gitbooks.io/prometheus/content/promql/summary.html">官方参考文档</a></strong></p>
+<p>PromQL(prometheus Query Language)是Prometheus自己开发的数据查询DSL语言。语言表现力非常丰富，内置含税很多，在日常数据可视化一级rule告警都会使用到。</p>
+<h2 id="查询结果类型"><a href="#查询结果类型" class="headerlink" title="查询结果类型"></a>查询结果类型</h2><blockquote>
+<p>PromQL查询结果主要有三种类型：</p>
+<ul>
+<li>瞬时数据(Instant vector)：包含一组时序，每个时序只有一个点，例如：http_requests_total</li>
+<li>区间数据(Range vector): 包含一组时序，每个时序有多个点，例如：http_requests_total[5m]</li>
+<li>纯量数据(Scalar): 纯量只是一个数字，没有时序，例如：count(http_requests_total)</li>
+</ul>
+</blockquote>
+<h2 id="查询条件"><a href="#查询条件" class="headerlink" title="查询条件"></a>查询条件</h2><blockquote>
+<p>Prometheus 存储的是时序数据，而它的时序是由名字和一组标签构成的，其实名字也可以写出标签的形式，例如 http_requests_total 等价于 {name&#x3D;”http_requests_total”}。</p>
+<ul>
+<li>http_requests_total{code!&#x3D;”200”}  &#x2F;&#x2F; 表示查询 code 不为 “200” 的数据</li>
+<li>http_requests_total{code&#x3D;～”2..”} &#x2F;&#x2F; 表示查询 code 为 “2xx” 的数据</li>
+<li>http_requests_total{code!～”2..”} &#x2F;&#x2F; 表示查询 code 不为 “2xx” 的数据</li>
+</ul>
+</blockquote>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><p>Prometheus 查询语句中，支持常见的各种表达式操作符，例如：</p>
+<h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><blockquote>
+<p>支持的算术运算符有 +，-，*，&#x2F;，%，^<br><code>%</code> 代表取余;<code>^</code>代表乘幂</p>
+<ul>
+<li>http_requests_total * 2 表示将 http_requests_total 所有数据 double 一倍。</li>
+</ul>
+</blockquote>
+<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><blockquote>
+<p>支持的比较运算符有 &#x3D;&#x3D;, !&#x3D;, &gt;, &gt;&#x3D;, &lt;&#x3D;,</p>
+<ul>
+<li>http_requests_total &gt; 100 表示 http_requests_total 结果中大于 100 的数据。</li>
+</ul>
+</blockquote>
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><blockquote>
+<p>支持的逻辑运算符有 and, or, unless,</p>
+<ul>
+<li>http_requests_total &#x3D;&#x3D; 5 or http_requests_total &#x3D;&#x3D; 2 表示 http_requests_total 结果中等于 5 或者 2 的数据。</li>
+</ul>
+</blockquote>
+<h4 id="聚合运算符"><a href="#聚合运算符" class="headerlink" title="聚合运算符"></a>聚合运算符</h4><blockquote>
+<p>支持的聚合运算符有 </p>
+<ul>
+<li>sum(求和),   </li>
+<li>min(最小值),  </li>
+<li>max(最大值), </li>
+<li>avg(平均值), </li>
+<li>stddev(标准差), </li>
+<li>stdvar(方差), </li>
+<li>count（计数）, </li>
+<li>coubt_values(某个valuse元素个数),  </li>
+<li>bottomk(最小的k个元素),  </li>
+<li>topk(最大的k个元素),   </li>
+<li>quantile(分位数),</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>聚合操作语法如下：</p>
+<ul>
+<li><aggr-op>([parameter,] <vector expression>) [without|by (<label list>)]</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>其中<code>without</code>用来指定不需要保留的标签，<code>by</code>用来指定需要保留的标签。<br>和四则运算一样，Prometheus的运算符也有优先级，它们遵从(^)&gt;(*, &#x2F;, %)&gt;(+, -)&gt;(&#x3D;&#x3D;, !&#x3D;, &lt;&#x3D;, &lt;, &gt;&#x3D;, &gt;)&gt;(and, unless)&gt;(or)的原则。</p>
+</blockquote>
+<h4 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h4><blockquote>
+<p>Prometheus内置了许多函数，方便数据查询及格式化，例如将结果由浮点数转为整数的floor和ceil。更多函数详情请参考<a target="_blank" rel="noopener" href="https://prometheus.io/docs/prometheus/latest/querying/functions/">官方文档</a>。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://muastu.github.io">Muastu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://muastu.github.io/2024/01/11/PromQL%EF%BC%88prometheus%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">http://muastu.github.io/2024/01/11/PromQL%EF%BC%88prometheus%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://muastu.github.io" target="_blank">Muastu</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PromQL/">PromQL</a><a class="post-meta__tags" href="/tags/Prometheus/">Prometheus</a></div><div class="post_share"><div class="social-share" data-image="/img/index_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/11/Nginx%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="Nginx安装部署"><img class="cover" src="/img/index_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Nginx安装部署</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/11/Untitled/" title="Docker 总体架构"><img class="cover" src="/img/index_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Docker 总体架构</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/index_img.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Muastu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/muastu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/muastu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:panf_mua@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Muastu个人博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">查询结果类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">查询条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.0.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.0.2.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.0.3.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.0.4.</span> <span class="toc-text">聚合运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-number">3.0.5.</span> <span class="toc-text">内置函数</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/test/" title="flink_test"><img src="/img/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="flink_test"/></a><div class="content"><a class="title" href="/2024/01/11/test/" title="flink_test">flink_test</a><time datetime="2024-01-11T09:47:09.000Z" title="发表于 2024-01-11 17:47:09">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/Docker%E6%9E%B6%E6%9E%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="Docker架构思维导图"><img src="/img/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker架构思维导图"/></a><div class="content"><a class="title" href="/2024/01/11/Docker%E6%9E%B6%E6%9E%84%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/" title="Docker架构思维导图">Docker架构思维导图</a><time datetime="2024-01-11T08:01:26.000Z" title="发表于 2024-01-11 16:01:26">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/Untitled/" title="Docker 总体架构"><img src="/img/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 总体架构"/></a><div class="content"><a class="title" href="/2024/01/11/Untitled/" title="Docker 总体架构">Docker 总体架构</a><time datetime="2024-01-11T07:31:07.000Z" title="发表于 2024-01-11 15:31:07">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/PromQL%EF%BC%88prometheus%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="PromQL（prometheus查询语句）基本使用"><img src="/img/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PromQL（prometheus查询语句）基本使用"/></a><div class="content"><a class="title" href="/2024/01/11/PromQL%EF%BC%88prometheus%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%EF%BC%89%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="PromQL（prometheus查询语句）基本使用">PromQL（prometheus查询语句）基本使用</a><time datetime="2024-01-11T06:59:19.000Z" title="发表于 2024-01-11 14:59:19">2024-01-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/Nginx%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="Nginx安装部署"><img src="/img/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nginx安装部署"/></a><div class="content"><a class="title" href="/2024/01/11/Nginx%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/" title="Nginx安装部署">Nginx安装部署</a><time datetime="2024-01-11T06:55:36.000Z" title="发表于 2024-01-11 14:55:36">2024-01-11</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/index_img.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2024 By Muastu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/js/tw_cn.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
