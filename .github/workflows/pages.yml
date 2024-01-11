@@ -22,7 +22,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.Hexo-Token }}
           submodules: recursive
       - name: Use Node.js 20
         uses: actions/setup-node@v3
