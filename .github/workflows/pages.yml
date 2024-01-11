@@ -1,4 +1,4 @@
-name: Pages
+name: Hexo-build-and-deploy
 
 on:
   push:
@@ -40,17 +40,17 @@ jobs:
 
       - name: 5. 安装依赖 # Install Dependencies 如果没有缓存或 插件有更新，则安装插件
         if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: | # **如果仓库里没有 package-lock.json，上传一下，npm ci 必须要有 package-lock.json**
-          npm ci
-
-      - name: 6. 生成静态文件 # Generate
         run: |
-          hexo clean
-          hexo generate
-          export TZ='Asia/Shanghai'
+          npm install --save
 
-      - name: Install Dependencies
-        run: npm install
+          #      - name: 6. 生成静态文件 # Generate
+          #        run: |
+          #          hexo clean
+          #          hexo generate
+          #          export TZ='Asia/Shanghai'
+          #
+          #      - name: Install Dependencies
+          #        run: npm install
       - name: Build
         run: npm run build
       - name: Upload Pages artifact
