@@ -1,7 +1,7 @@
----
-title: 友情链接
-date: 2024-01-10 11:04:14
-type: "link"
+title: flink_test
+author: Muastu
+date: 2024-01-11 17:47:09
+tags:
 ---
 {% flink %}
 - class_name: 友情链接
@@ -32,4 +32,3 @@ type: "link"
       avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
       descr: 社交分享平台  
 {% endflink %}
-
