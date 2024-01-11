@@ -21,7 +21,7 @@ jobs:
           npm install hexo-cli -g
           npm install hexo-renderer-stylus -g
           npm install hexo-renderer-pug -g
-          npm install hexo-admin -g
+          npm install hexo-admin --save
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         with:
