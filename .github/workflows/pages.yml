@@ -7,7 +7,7 @@ on:
       #2020年10月后github新建仓库默认分支改为main，注意更改
 
 jobs:
-  deploy:
+  buiuld-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -62,7 +62,7 @@ jobs:
       - name: 部署到Github
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: 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
+          token: ${{ secrets.Hexo-Token }}
           repository-name: muastu/muastu.github.io
           branch: master
           folder: public
