@@ -40,7 +40,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: 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
-          repository-name: anzhiyu-a/anzhiyu-a.github.io
+          repository-name: muastu/muastu.github.io
           branch: main
           folder: public
           commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
