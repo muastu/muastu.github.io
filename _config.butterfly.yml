@@ -331,9 +331,9 @@ rightside_scroll_percent: true
 # Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
 # Don't repeat 不要重複
 rightside_item_order:
-  enable: true
+  enable: false
   hide: # readmode,translate,darkmode,hideAside
-  show: # toc,chat,comment
+  show: toc,chat,readmode,comment # toc,chat,comment
 
 # Math (數學)
 # --------------------------------------
@@ -389,7 +389,7 @@ docsearch:
 # https://github.com/overtrue/share.js
 sharejs:
   enable: true
-  sites: facebook,twitter,wechat,weibo,qq
+  sites: facebook,twitter,wechat,qq
 
 # AddToAny
 # https://www.addtoany.com/
@@ -403,13 +403,13 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  use: # Valine,Disqus
-  text: true # Display the comment name next to the button
+  use: Waline # Valine,Disqus
+  text: false # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
   lazyload: false
-  count: false # Display comment count in post's top_img
-  card_post_count: false # Display comment count in Home Page
+  count: true # Display comment count in post's top_img
+  card_post_count: true # Display comment count in Home Page
 
 # disqus
 # https://disqus.com/
@@ -454,9 +454,9 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: # Waline server address url
-  bg: # waline background
-  pageview: false
+  serverURL: https://muastu-hexo-waline.vercel.app/ # Waline server address url
+  bg: /img/index_img.jpg # waline background
+  pageview: true
   option:
 
 # utterances
@@ -517,22 +517,22 @@ artalk:
 
 # Chat Button [recommend]
 # It will create a button in the bottom right corner of website, and hide the origin button
-chat_btn: false
+chat_btn: true
 
 # The origin chat button is displayed when scrolling up, and the button is hidden when scrolling down
-chat_hide_show: false
+chat_hide_show: true
 
 # chatra
 # https://chatra.io/
 chatra:
-  enable: false
-  id:
+  enable: true
+  id: Wm5xWG8Q5vJYwT4vN
 
 # tidio
 # https://www.tidio.com/
 tidio:
   enable: false
-  public_key:
+  public_key: 9qfj4fc6qcyklq7qxacygqkb9dz9ali0
 
 # daovoice
 # http://dashboard.daovoice.io/app
@@ -562,7 +562,7 @@ baidu_analytics:
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
-google_analytics:
+google_analytics: G-MZYVCX8XXW
 
 # Cloudflare Analytics
 # https://www.cloudflare.com/zh-tw/web-analytics/
@@ -641,7 +641,7 @@ text_align_justify: false
 # Website Background (設置網站背景)
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background:
+background: /img/index_img.jpg
 
 # Footer Background
 footer_bg: true
@@ -652,7 +652,7 @@ mask:
   footer: true
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
-rightside_bottom:
+rightside_bottom: 
 
 # Enter transitions (開啓網頁進入效果)
 enter_transitions: true
