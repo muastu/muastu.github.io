@@ -1,69 +1,51 @@
-name: 自动部署
-# 当有改动推送到master分支时，启动Action
+name: Hexo-build-and-deploy
+
 on:
   push:
     branches:
-      - master
-      #2020年10月后github新建仓库默认分支改为main，注意更改
+      - master  # default branch
 
 jobs:
-  buiuld-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      checks: write
-      contents: write
-      deployments: write
-      discussions: write
-      issues: write
-      packages: write
-      pages: write
-      statuses: write
     steps:
-      - name: 检查分支
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          ref: master
-
-      - name: 安装 Node
+          submodules: recursive
+      - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: "v20.10.0"
-
-      - name: 安装 Hexo
+          node-version: 'v20.10.0'
+      - name: Install Hexo-cli
         run: |
-          export TZ='Asia/Shanghai'
           npm install hexo-cli -g
-
-      - name: 缓存 Hexo
-        id: cache-npm
+          npm install hexo-renderer-stylus -g
+          npm install hexo-renderer-pug -g
+      - name: Cache NPM dependencies
         uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: 安装依赖
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+          key: ${{runner.OS}}-${{hashFiles('**/package-lock.json')}}
+      - name: 5. 安装依赖 # Install Dependencies 如果没有缓存或 插件有更新，则安装插件
+        if: steps.cache-modules.outputs.cache-hit != 'true'
         run: |
           npm install --save
-          npm ci
-
-      - name: 生成静态文件
-        run: |
-          hexo clean
-          hexo generate
-
-      - name: 部署到Github
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Build
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          token: ${{ secrets.Hexo-Token }}
-          repository-name: muastu/muastu.github.io
-          branch: master
-          folder: public
-          commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
+          path: ./public
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
