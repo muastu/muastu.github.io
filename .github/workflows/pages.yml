@@ -41,6 +41,6 @@ jobs:
         with:
           token: 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
           repository-name: muastu/muastu.github.io
-          branch: main
+          branch: master
           folder: public
           commit-message: "${{ github.event.head_commit.message }} Updated By Github Actions"
