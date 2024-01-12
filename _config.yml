@@ -15,7 +15,7 @@ timezone: ''
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://muastu.github.io
 root: /
-permalink: :year/:month/:day/:title/
+permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -111,3 +111,4 @@ admin:
   username: muastu
   password_hash: $2a$10$WA8WFyenHTLHs01BAwXeQOScCYxx6cCFX9VQ4u0mVHoJJ94i0SaJq
   secret: yxmb1kvqXmoZR6AZIFMcd9htw7BJRb2H6ap2
+ 

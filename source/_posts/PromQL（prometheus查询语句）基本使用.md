@@ -1,10 +1,12 @@
+---
 title: PromQL（prometheus查询语句）基本使用
 author: Muastu
-date: 2024-01-11 14:59:19
-tags: 
+tags:
   - PromQL
   - Prometheus
 categories: MiddleWare
+abbrlink: 9117
+date: 2024-01-11 14:59:19
 ---
 **[官方参考文档](https://songjiayang.gitbooks.io/prometheus/content/promql/summary.html)**
   
