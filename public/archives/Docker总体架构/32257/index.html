@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Docker 总体架构 | Muastu</title><meta name="author" content="Muastu"><meta name="copyright" content="Muastu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Docker 的总体架构Docker是一个C&#x2F;S模式的架构,后端是一个松耦合架构，模块各司其职。下图是它的总体架构图：  12345671、用户是使用 Docker Client 与 Docker Daemon 建立通信，并发送请求给后者。2、Docker Daemon 作为 Docker 架构中的主体部分，首先提供 Docker Server 的功能使其可以接受 Docker Clie">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Docker 总体架构 | Muastu</title><meta name="author" content="Muastu"><meta name="copyright" content="Muastu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Docker 的总体架构Docker是一个C&#x2F;S模式的架构,后端是一个松耦合架构，模块各司其职。下图是它的总体架构图：  12345671、用户是使用 Docker Client 与 Docker Daemon 建立通信，并发送请求给后者。2、Docker Daemon 作为 Docker 架构中的主体部分，首先提供 Docker Server 的功能使其可以接受 Docker Clie">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker 总体架构">
 <meta property="og:url" content="http://muastu.github.io/archives/Docker%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84/32257/index.html">
@@ -137,7 +137,7 @@ gtag('config', 'G-MZYVCX8XXW');
       win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
         }
       }
       const t = saveToLocal.get('theme')
