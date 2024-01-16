@@ -1,9 +1,9 @@
 ---
 title: Docker 总体架构
 author: Muastu
-abbrlink: 32257
-date: 2024-01-11 15:31:07
+abbrlink: '89e38926'
 tags: Docker
+date: 2024-01-11 15:31:07
 ---
 
 ### __Docker 的总体架构__

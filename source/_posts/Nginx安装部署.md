@@ -3,7 +3,7 @@ title: Nginx安装部署
 author: Muastu
 tags: Nginx
 categories: MiddleWare
-abbrlink: 32308
+abbrlink: 39c8ac7
 date: 2024-01-11 14:55:36
 ---
 * 安装nginx需要的依赖包

@@ -4,8 +4,10 @@ author: Muastu
 tags:
   - PromQL
   - Prometheus
-categories: MiddleWare
-abbrlink: 9117
+categories:
+  - MiddleWare
+  - 监控系统
+abbrlink: ddd4c2f4
 date: 2024-01-11 14:59:19
 ---
 **[官方参考文档](https://songjiayang.gitbooks.io/prometheus/content/promql/summary.html)**

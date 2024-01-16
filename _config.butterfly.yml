@@ -175,7 +175,7 @@ reward:
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit:
-  enable: true
+  enable: false
   url: https://github.com/muastu/muastu.github.io/edit/master/source/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
 
@@ -455,9 +455,12 @@ valine:
 # https://waline.js.org/
 waline:
   serverURL: https://muastu-hexo-waline.vercel.app/ # Waline server address url
-  bg: /img/index_img.jpg # waline background
+  bg:  # waline background
   pageview: true
   option:
+    requiredMeta: [ nick, mail ] # 选定昵称和评论为必填项
+    locale:
+      placeholder: 
 
 # utterances
 # https://utteranc.es/
@@ -763,8 +766,8 @@ subtitle:
   source: 1
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
-    - 今日事&#44;今日毕
-    - Never put off till tomorrow what you can do today
+    - 今日事，今日毕
+    - Never put off till tomorrow what you can do today!
 
 # Loading Animation (加載動畫)
 preloader:
@@ -772,9 +775,9 @@ preloader:
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
-  source: 1
+  source: 2
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url: blob:https://codebyzach.github.io/7bebaee2-55d0-4143-9bc1-651dc9ffbb10
+  pace_css_url: /css/_load/flash.css
 
 # wordcount (字數統計)
 # see https://butterfly.js.org/posts/ceeb73f/#字數統計
@@ -993,3 +996,19 @@ CDN:
     # valine:
     # waline_css:
     # waline_js:
+# hexo-butterfly-swiper
+# see https://akilar.top/posts/8e1264d1/
+swiper:
+  enable: true # 开关
+  priority: 5 #过滤器优先权
+  enable_page: all # 应用页面
+  timemode: date #date/updated
+  layout: # 挂载容器类型
+    type: calss # class/id
+    name: recent-posts
+    index: 0
+  default_descr: 再怎么看我也不知道怎么描述它的啦！
+  swiper_css: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css #swiper css依赖
+  swiper_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js #swiper js依赖
+  custom_css: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css # 适配主题样式补丁
+  custom_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js # swiper初始化方法

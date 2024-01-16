@@ -2,8 +2,8 @@
 title: MarkDown基础语法
 author: Muastu
 tags: MarkDown
-categories: 2024
-abbrlink: 16878
+categories: 文本工具
+abbrlink: 4ba7856f
 date: 2024-01-11 14:37:31
 ---
 
