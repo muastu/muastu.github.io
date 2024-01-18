@@ -459,8 +459,23 @@ waline:
   pageview: true
   option:
     requiredMeta: [ nick, mail ] # 选定昵称和评论为必填项
+    login: force
     locale:
-      placeholder: 
+      placeholder: "根据《互联网跟帖评论服务管理规定》，将展示您的归属地，并开启强制注册登录后才允许评论\n
+社交登录现已支持【QQ Weibo GitHub X Facebook】等平台，登录后可点击头像更改个人主页地址，方便Mua串门\n
+良言一句三冬暖，恶语伤人六月寒。和谐社会，文明你我！"
+      reactionTitle: "就现在，表明你的态度！"
+      sofa: "这里冷冷清清，凄凄惨惨戚戚...暖好茶等一位有缘人"
+      reaction0: "还得努力"
+      reaction1: "菜狗"
+      reaction2: "你说得对"
+      reaction3: "不敢苟同"
+      reaction4: "容我思考"
+      reaction5: "睡觉勿扰"
+      submit: "发射"
+    reaction: ["https://jsd.cdn.zzko.cn/npm/sticker-heo/Sticker-100/%E9%BC%93%E6%8E%8C.png","https://jsd.cdn.zzko.cn/npm/sticker-heo/Sticker-100/%E8%8F%9C%E7%8B%97.png","https://jsd.cdn.zzko.cn/npm/sticker-heo/Sticker-100/%E6%AD%A3%E7%A1%AE.png","https://jsd.cdn.zzko.cn/npm/sticker-heo/Sticker-100/%E9%94%99%E8%AF%AF.png","https://jsd.cdn.zzko.cn/npm/sticker-heo/Sticker-100/%E6%80%9D%E8%80%83.png","https://jsd.cdn.zzko.cn/npm/sticker-heo/Sticker-100/%E7%9D%A1%E8%A7%89.png"]
+    copyright: false
+    search: true
 
 # utterances
 # https://utteranc.es/
@@ -704,16 +719,25 @@ fireworks:
 
 # Mouse click effects: Heart symbol (鼠標點擊效果: 愛心)
 click_heart:
-  enable: true
+  enable: false
   mobile: true
 
 # Mouse click effects: words (鼠標點擊效果: 文字)
 clickShowText:
   enable: true
   text:
-     - I
-     - LOVE
-     - U
+     - 富强
+     - 民主
+     - 文明
+     - 和谐
+     - 自由
+     - 平等
+     - 公正
+     - 法治
+     - 爱国
+     - 敬业
+     - 诚信
+     - 友善
   fontSize: 15px
   random: false
   mobile: true
@@ -771,13 +795,13 @@ subtitle:
 
 # Loading Animation (加載動畫)
 preloader:
-  enable: true
+  enable: false
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
   source: 2
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url: /css/_load/flash.css
+  pace_css_url: 
 
 # wordcount (字數統計)
 # see https://butterfly.js.org/posts/ceeb73f/#字數統計
@@ -845,7 +869,7 @@ note:
 # It may contain bugs and unstable, give feedback when you find the bugs.
 # https://github.com/MoOx/pjax
 pjax:
-  enable: false
+  enable: true
   exclude:
     # - xxxx
     # - xxxx
@@ -915,8 +939,10 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/css/better_and_better.css">
   bottom:
+    - <script src="/js/nav.js" async></script>
+    - <script src="/js/jquery.min.js" async></script>
     # - <script src="xxxx"></script>
 
 # CDN
@@ -1012,3 +1038,6 @@ swiper:
   swiper_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js #swiper js依赖
   custom_css: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css # 适配主题样式补丁
   custom_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js # swiper初始化方法
+
+# Banner
+bg_num: 20

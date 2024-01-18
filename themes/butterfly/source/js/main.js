@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isDown) {
           if (flag !== 'down') {
-            $header.classList.remove('nav-visible')
+            $header.classList.add('nav-visible')
             isChatBtn && window.chatBtn.hide()
             flag = 'down'
           }
