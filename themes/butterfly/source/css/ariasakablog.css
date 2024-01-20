@@ -1,0 +1,18 @@
+
+/* 删除后顶部导航栏中间消失 */
+.menus_items:not(#sidebar-menus>.menus_items){
+    display: flex;
+}
+.site-page{
+    padding: 5px;
+    margin:3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+.site-page:hover{
+    background-color: var(--Muastu-theme);
+    box-shadow:0 0 3px var(--Muastu-theme)!important;
+    border-radius: 5px;
+    color:white!important
+}

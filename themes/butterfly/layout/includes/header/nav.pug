@@ -5,7 +5,7 @@ nav#nav
         img.site-icon(src=url_for(theme.nav.logo))
       if theme.nav.display_title
         span.site-name=config.title
-    
+
   #menus
     !=partial('includes/header/menu_item', {}, {cache: true})
     center(id="name-container")
@@ -20,5 +20,3 @@ nav#nav
     #toggle-menu
       a.site-page(href="javascript:void(0);")
         i.fas.fa-bars.fa-fw
-
-

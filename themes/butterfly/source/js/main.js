@@ -382,6 +382,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentTop = window.scrollY || document.documentElement.scrollTop
       const isDown = scrollDirection(currentTop)
       if (currentTop > 56) {
+        $header.classList.add('is-top-bar')
         if (flag === '') {
           $header.classList.add('nav-fixed')
           $rightside.classList.add('rightside-show')
@@ -389,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (isDown) {
           if (flag !== 'down') {
-            $header.classList.add('nav-visible')
+            $header.classList.remove('nav-visible')
             isChatBtn && window.chatBtn.hide()
             flag = 'down'
           }
@@ -403,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         flag = ''
         if (currentTop === 0) {
-          $header.classList.remove('nav-fixed', 'nav-visible')
+          $header.classList.remove('is-top-bar')
         }
         $rightside.classList.remove('rightside-show')
       }

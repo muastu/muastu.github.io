@@ -624,7 +624,7 @@ site_verification:
 
 theme_color:
   enable: true
-  main: "#383a3a"
+  main: "#3eb8be"
   paginator: "#00c4b6"
   button_hover: "#FF7242"
   text_selection: "#00c4b6"
@@ -795,13 +795,14 @@ subtitle:
 
 # Loading Animation (加載動畫)
 preloader:
-  enable: false
+  enable: true
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
-  source: 2
+  source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url: 
+  pace_css_url: /css/progress_bar.css
+  avatar: /img/avatar.jpg
 
 # wordcount (字數統計)
 # see https://butterfly.js.org/posts/ceeb73f/#字數統計
@@ -940,6 +941,7 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/css/better_and_better.css">
+    - <link rel="stylesheet" href="/css/nav.css">
   bottom:
     - <script src="/js/nav.js" async></script>
     - <script src="/js/jquery.min.js" async></script>
