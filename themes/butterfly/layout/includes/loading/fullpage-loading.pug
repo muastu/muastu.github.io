@@ -1,20 +1,28 @@
 #loading-box(onclick='document.getElementById("loading-box").classList.add("loaded")')
-  .loading-bg
-    div.loading-img
-    .loading-image-dot
+  #icat-splash
+    .icat-loading
+      img(src=url_for(theme.preloader.logo) data-src=url_for(theme.preloader.logo_dark))
 
 script.
+  var htmlElement = document.querySelector('html');
+  if (htmlElement.getAttribute('data-theme') === 'dark') {
+    var imgElement = document.querySelector('.icat-loading img');
+    var dataSrc = imgElement.getAttribute('data-src');
+    imgElement.src = dataSrc;
+  }
+
   const preloader = {
     endLoading: () => {
       document.body.style.overflow = 'auto';
       document.getElementById('loading-box').classList.add("loaded")
     },
     initLoading: () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = 'hidden';
       document.getElementById('loading-box').classList.remove("loaded")
-
     }
   }
+
+  preloader.initLoading()
   window.addEventListener('load',()=> { preloader.endLoading() })
 
   if (!{theme.pjax && theme.pjax.enable}) {
