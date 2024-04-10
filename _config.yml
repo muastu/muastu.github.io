@@ -99,7 +99,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: anzhiyu
+theme: butterfly
 #remote_theme: jerryc127/hexo-theme-butterfly
 
 # Deployment
