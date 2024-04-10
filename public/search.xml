@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>随笔</title>
-    <url>/archives/2c336a21.html</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>DevOps</tag>
-        <tag>杂乱无章聚集地</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>images</title>
-    <url>/archives/e01fbe6a.html</url>
-    <content><![CDATA[<p><img src="http://s7cms6csr.hn.clouddn.com/images/Muastu/a8d41dac5a1145a2b12e03b2a3a5113d.png" alt="Muastu.png"></p>
-<p><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/9e098ec219b84d1bbe6ca61ac8b35c6d.jpg" alt="index_img.jpg"><br><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/bce4c7dc8aba44f2acc586a8e68a9028.png" alt="Muastu.png"><br><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/51efc6a6dbd34f7c9e07b6d680f9b5be.png" alt="Muastu_404"><br><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/avatar.jpg" alt="avatar.jpg"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>K8S安装部署</title>
-    <url>/archives/6e476b7f.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/archives/4a17b156.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>Hello World</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker架构思维导图</title>
     <url>/archives/f1c538bd.html</url>
     <content><![CDATA[<p><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/Xmind/89928b2fb8ff44d78f35d24a92dd1f42.png" alt="Docker架构思维导图.png"></p>
@@ -52,6 +10,36 @@
       </categories>
       <tags>
         <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随笔</title>
+    <url>/archives/2c336a21.html</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>DevOps</tag>
+        <tag>杂乱无章聚集地</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8S安装部署</title>
+    <url>/archives/6e476b7f.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>MarkDown基础语法</title>
+    <url>/archives/4ba7856f.html</url>
+    <content><![CDATA[<h3 id="一、Markdown简介"><a href="#一、Markdown简介" class="headerlink" title="一、Markdown简介"></a>一、Markdown简介</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。  </span><br><span class="line">Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。  </span><br><span class="line">Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。  </span><br><span class="line">Markdown 编写的文档后缀为 .md, .markdown。  </span><br><span class="line">Markdown 能被使用来撰写电子书，如：Gitbook。  </span><br><span class="line">当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等。</span><br></pre></td></tr></table></figure>
+<h6 id="Markdown编写Hello-World"><a href="#Markdown编写Hello-World" class="headerlink" title="Markdown编写Hello World!"></a>Markdown编写Hello World!</h6><blockquote>
+<p>语法：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Hello World</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>文本工具</category>
+      </categories>
+      <tags>
+        <tag>MarkDown</tag>
       </tags>
   </entry>
   <entry>
@@ -96,6 +84,61 @@
 ]]></content>
       <tags>
         <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx安装部署</title>
+    <url>/archives/39c8ac7.html</url>
+    <content><![CDATA[<ul>
+<li>安装nginx需要的依赖包</li>
+</ul>
+<blockquote>
+<p>yum install -y glib2-devel openssl-devel pcre-devel bzip2-devel perl-ExtUtils* zlib-devel gd-devel</p>
+</blockquote>
+<ul>
+<li>下载nginx安装包</li>
+</ul>
+<blockquote>
+<p>wget <a href="http://nginx.org/download/nginx-1.14.2.tar.gz">http://nginx.org/download/nginx-1.14.2.tar.gz</a></p>
+</blockquote>
+<ul>
+<li>解压安装包</li>
+</ul>
+<blockquote>
+<p>tar -xvf nginx-1.14.2.tar.gz</p>
+</blockquote>
+<p>进入目录</p>
+<p>cd nginx-1.14.2</p>
+<ul>
+<li>检查nginx编译参数</li>
+</ul>
+<blockquote>
+<p>.&#x2F;configure –prefix&#x3D;&#x2F;data&#x2F;nginx –sbin-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;sbin&#x2F;nginx –conf-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;conf&#x2F;nginx.conf –error-log-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;error.log –http-log-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;access.log –pid-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;pid&#x2F;nginx.pid –lock-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;lock&#x2F;subsys&#x2F;nginx –with-http_ssl_module –with-http_realip_module –with-http_addition_module –with-http_sub_module –with-http_dav_module –with-http_flv_module –with-http_gzip_static_module –with-http_stub_status_module –with-http_perl_module –with-ld-opt&#x3D;”-Wl,-E” –with-http_image_filter_module</p>
+</blockquote>
+<ul>
+<li>编译并安装nginx</li>
+</ul>
+<blockquote>
+<p>make &amp;&amp; make install</p>
+</blockquote>
+<ul>
+<li>将nginx启动文件复制到&#x2F;usr&#x2F;bin下</li>
+</ul>
+<blockquote>
+<p>cp -p &#x2F;data&#x2F;nginx&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;bin&#x2F;</p>
+</blockquote>
+<ul>
+<li>启动nginx</li>
+</ul>
+<blockquote>
+<p>nginx</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>MiddleWare</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -177,74 +220,31 @@
       </tags>
   </entry>
   <entry>
-    <title>Nginx安装部署</title>
-    <url>/archives/39c8ac7.html</url>
-    <content><![CDATA[<ul>
-<li>安装nginx需要的依赖包</li>
-</ul>
-<blockquote>
-<p>yum install -y glib2-devel openssl-devel pcre-devel bzip2-devel perl-ExtUtils* zlib-devel gd-devel</p>
-</blockquote>
-<ul>
-<li>下载nginx安装包</li>
-</ul>
-<blockquote>
-<p>wget <a href="http://nginx.org/download/nginx-1.14.2.tar.gz">http://nginx.org/download/nginx-1.14.2.tar.gz</a></p>
-</blockquote>
-<ul>
-<li>解压安装包</li>
-</ul>
-<blockquote>
-<p>tar -xvf nginx-1.14.2.tar.gz</p>
-</blockquote>
-<p>进入目录</p>
-<p>cd nginx-1.14.2</p>
-<ul>
-<li>检查nginx编译参数</li>
-</ul>
-<blockquote>
-<p>.&#x2F;configure –prefix&#x3D;&#x2F;data&#x2F;nginx –sbin-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;sbin&#x2F;nginx –conf-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;conf&#x2F;nginx.conf –error-log-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;error.log –http-log-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;access.log –pid-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;pid&#x2F;nginx.pid –lock-path&#x3D;&#x2F;data&#x2F;nginx&#x2F;log&#x2F;lock&#x2F;subsys&#x2F;nginx –with-http_ssl_module –with-http_realip_module –with-http_addition_module –with-http_sub_module –with-http_dav_module –with-http_flv_module –with-http_gzip_static_module –with-http_stub_status_module –with-http_perl_module –with-ld-opt&#x3D;”-Wl,-E” –with-http_image_filter_module</p>
-</blockquote>
-<ul>
-<li>编译并安装nginx</li>
-</ul>
-<blockquote>
-<p>make &amp;&amp; make install</p>
-</blockquote>
-<ul>
-<li>将nginx启动文件复制到&#x2F;usr&#x2F;bin下</li>
-</ul>
-<blockquote>
-<p>cp -p &#x2F;data&#x2F;nginx&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;bin&#x2F;</p>
-</blockquote>
-<ul>
-<li>启动nginx</li>
-</ul>
-<blockquote>
-<p>nginx</p>
-</blockquote>
+    <title>Hello World</title>
+    <url>/archives/4a17b156.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>MiddleWare</category>
-      </categories>
       <tags>
-        <tag>Nginx</tag>
+        <tag>Hello World</tag>
       </tags>
   </entry>
   <entry>
-    <title>MarkDown基础语法</title>
-    <url>/archives/4ba7856f.html</url>
-    <content><![CDATA[<h3 id="一、Markdown简介"><a href="#一、Markdown简介" class="headerlink" title="一、Markdown简介"></a>一、Markdown简介</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。  </span><br><span class="line">Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。  </span><br><span class="line">Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。  </span><br><span class="line">Markdown 编写的文档后缀为 .md, .markdown。  </span><br><span class="line">Markdown 能被使用来撰写电子书，如：Gitbook。  </span><br><span class="line">当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等。</span><br></pre></td></tr></table></figure>
-<h6 id="Markdown编写Hello-World"><a href="#Markdown编写Hello-World" class="headerlink" title="Markdown编写Hello World!"></a>Markdown编写Hello World!</h6><blockquote>
-<p>语法：</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Hello World</span><br></pre></td></tr></table></figure>
+    <title>images</title>
+    <url>/archives/e01fbe6a.html</url>
+    <content><![CDATA[<p><img src="http://s7cms6csr.hn.clouddn.com/images/Muastu/a8d41dac5a1145a2b12e03b2a3a5113d.png" alt="Muastu.png"></p>
+<p><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/9e098ec219b84d1bbe6ca61ac8b35c6d.jpg" alt="index_img.jpg"><br><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/bce4c7dc8aba44f2acc586a8e68a9028.png" alt="Muastu.png"><br><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/51efc6a6dbd34f7c9e07b6d680f9b5be.png" alt="Muastu_404"><br><img src="http://s7cms6csr.hn-bkt.clouddn.com/images/index/avatar.jpg" alt="avatar.jpg"></p>
 ]]></content>
-      <categories>
-        <category>文本工具</category>
-      </categories>
-      <tags>
-        <tag>MarkDown</tag>
-      </tags>
   </entry>
 </search>
